@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Git/puzzle_engine/puzzle_engine/crossing.cpp
+reachability.hpp
+C:/Git/puzzle_engine/puzzle_engine/reachability.hpp
+functional
+-
+list
+-
+array
+-
+iostream
+-
+
+C:/Git/puzzle_engine/puzzle_engine/reachability.hpp
+vector
+-
+list
+-
+functional
+-
+iostream
+-
+algorithm
+-
+typeinfo
+-
+
