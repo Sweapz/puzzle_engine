@@ -47,10 +47,10 @@ RM = "C:\Program Files\JetBrains\CLion 2018.3.4\bin\cmake\win\bin\cmake.exe" -E 
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\Nille\OneDrive\Skole\Filer\P8\AP\puzzle_engine
+CMAKE_SOURCE_DIR = C:\Git\puzzle_engine\puzzle_engine
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\Nille\OneDrive\Skole\Filer\P8\AP\puzzle_engine\cmake-build-default
+CMAKE_BINARY_DIR = C:\Git\puzzle_engine\puzzle_engine\cmake-build-default
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -79,9 +79,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Nille\OneDrive\Skole\Filer\P8\AP\puzzle_engine\cmake-build-default\CMakeFiles C:\Users\Nille\OneDrive\Skole\Filer\P8\AP\puzzle_engine\cmake-build-default\CMakeFiles\progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Git\puzzle_engine\puzzle_engine\cmake-build-default\CMakeFiles C:\Git\puzzle_engine\puzzle_engine\cmake-build-default\CMakeFiles\progress.marks
 	$(MAKE) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Nille\OneDrive\Skole\Filer\P8\AP\puzzle_engine\cmake-build-default\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Git\puzzle_engine\puzzle_engine\cmake-build-default\CMakeFiles 0
 .PHONY : all
 
 # The main clean target

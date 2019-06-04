@@ -6,15 +6,15 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/Nille/OneDrive/Skole/Filer/P8/AP/puzzle_engine/frogs.cpp
+C:/Git/puzzle_engine/puzzle_engine/frogs.cpp
 reachability.hpp
-C:/Users/Nille/OneDrive/Skole/Filer/P8/AP/puzzle_engine/reachability.hpp
+C:/Git/puzzle_engine/puzzle_engine/reachability.hpp
 iostream
 -
 list
 -
 
-C:/Users/Nille/OneDrive/Skole/Filer/P8/AP/puzzle_engine/reachability.hpp
+C:/Git/puzzle_engine/puzzle_engine/reachability.hpp
 vector
 -
 list

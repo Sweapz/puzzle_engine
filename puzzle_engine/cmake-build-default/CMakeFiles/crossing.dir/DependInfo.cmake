@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "C:/Users/Nille/OneDrive/Skole/Filer/P8/AP/puzzle_engine/crossing.cpp" "C:/Users/Nille/OneDrive/Skole/Filer/P8/AP/puzzle_engine/cmake-build-default/CMakeFiles/crossing.dir/crossing.cpp.obj"
+  "C:/Git/puzzle_engine/puzzle_engine/crossing.cpp" "C:/Git/puzzle_engine/puzzle_engine/cmake-build-default/CMakeFiles/crossing.dir/crossing.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

@@ -130,6 +130,8 @@ std::list<ActorType> state_space_t<ActorType>::findSolutionDepthFirst(Validation
             }
         }
     }
+
+    return solution;
 }
 
 template<class ActorType>
@@ -178,6 +180,8 @@ std::list<ActorType> state_space_t<ActorType>::findSolutionBreadthFirst(Validati
             }
         }
     }
+
+    return solution;
 }
 
 #endif //PUZZLEENGINE_REACHABILITY_HPP

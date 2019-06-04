@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/Nille/OneDrive/Skole/Filer/P8/AP/puzzle_engine
+# Install script for directory: C:/Git/puzzle_engine/puzzle_engine
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/Nille/OneDrive/Skole/Filer/P8/AP/puzzle_engine/cmake-build-default/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Git/puzzle_engine/puzzle_engine/cmake-build-default/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
