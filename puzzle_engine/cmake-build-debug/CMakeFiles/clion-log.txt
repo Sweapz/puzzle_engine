@@ -1,0 +1,4 @@
+"C:\Program Files\JetBrains\CLion 2018.3.4\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" C:\Users\Nille\OneDrive\Skole\Filer\P8\AP\puzzle_engine
+-- Configuring done
+-- Generating done
+-- Build files have been written to: C:/Users/Nille/OneDrive/Skole/Filer/P8/AP/puzzle_engine/cmake-build-debug
