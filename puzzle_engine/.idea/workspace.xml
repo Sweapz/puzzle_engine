@@ -31,12 +31,20 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/reachability.hpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="439">
-              <caret line="182" column="38" lean-forward="true" selection-start-line="182" selection-start-column="38" selection-end-line="182" selection-end-column="38" />
+            <state relative-caret-position="640">
+              <caret line="119" column="20" selection-start-line="119" selection-start-column="20" selection-end-line="119" selection-end-column="20" />
               <folding>
                 <element signature="e#120#137#0" expanded="true" />
                 <element signature="e#304#321#0" expanded="true" />
+                <element signature="e#681#698#0" expanded="true" />
+                <element signature="e#1158#1175#0" expanded="true" />
+                <element signature="e#1293#1319#0" expanded="true" />
+                <element signature="e#1416#1442#0" expanded="true" />
+                <element signature="e#1901#1927#0" expanded="true" />
                 <element signature="e#2423#2440#0" expanded="true" />
+                <element signature="e#2449#2475#0" expanded="true" />
+                <element signature="e#4255#4272#0" expanded="true" />
+                <element signature="e#4281#4307#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -61,8 +69,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frogs.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1296">
-              <caret line="129" column="6" selection-start-line="129" selection-start-column="6" selection-end-line="129" selection-end-column="6" />
+            <state relative-caret-position="288">
+              <caret line="129" column="12" selection-start-line="129" selection-start-column="12" selection-end-line="129" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -88,8 +96,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
-        <option value="$PROJECT_DIR$/frogs.cpp" />
         <option value="$PROJECT_DIR$/reachability.hpp" />
+        <option value="$PROJECT_DIR$/frogs.cpp" />
       </list>
     </option>
   </component>
@@ -181,7 +189,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50550000" />
+    <option name="totallyTimeSpent" value="53127000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
@@ -192,13 +200,13 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.30555555" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.35972223" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="7" />
-      <window_info anchor="bottom" id="Messages" order="8" weight="0.24305555" />
+      <window_info anchor="bottom" id="Messages" order="8" weight="0.3888889" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.32916668" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="11" />
@@ -244,19 +252,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/frogs.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1296">
-          <caret line="129" column="6" selection-start-line="129" selection-start-column="6" selection-end-line="129" selection-end-column="6" />
+        <state relative-caret-position="288">
+          <caret line="129" column="12" selection-start-line="129" selection-start-column="12" selection-end-line="129" selection-end-column="12" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/reachability.hpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="439">
-          <caret line="182" column="38" lean-forward="true" selection-start-line="182" selection-start-column="38" selection-end-line="182" selection-end-column="38" />
+        <state relative-caret-position="640">
+          <caret line="119" column="20" selection-start-line="119" selection-start-column="20" selection-end-line="119" selection-end-column="20" />
           <folding>
             <element signature="e#120#137#0" expanded="true" />
             <element signature="e#304#321#0" expanded="true" />
+            <element signature="e#681#698#0" expanded="true" />
+            <element signature="e#1158#1175#0" expanded="true" />
+            <element signature="e#1293#1319#0" expanded="true" />
+            <element signature="e#1416#1442#0" expanded="true" />
+            <element signature="e#1901#1927#0" expanded="true" />
             <element signature="e#2423#2440#0" expanded="true" />
+            <element signature="e#2449#2475#0" expanded="true" />
+            <element signature="e#4255#4272#0" expanded="true" />
+            <element signature="e#4281#4307#0" expanded="true" />
           </folding>
         </state>
       </provider>

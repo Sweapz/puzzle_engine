@@ -86,47 +86,38 @@ template<class ActorType>
 template<class ValidationFunction>
 std::list<ActorType> state_space_t<ActorType>::findSolutionDepthFirst(ValidationFunction isGoalState) {
     ActorType currentState;
-    parent_state<ActorType> traceState;
-    std::list<ActorType> waiting, passed, solution;
-//    std::list<parent_state<ActorType>> solutionTrace;
-//    waiting.push_back(startState);
-//    solutionTrace.push_back({currentState, startState});
-//
-//    while (!waiting.empty()) {
-//        currentState = waiting.back();
-//        waiting.pop_back();
-//
-//        if (isGoalState(currentState)) {
-//            solution.push_front(solutionTrace.back().selfState);
-//            traceState = solutionTrace.back();
-//            solutionTrace.pop_back();
-//
-//            do {
-//                if(solutionTrace.back().compare_parent(traceState.parentState)){
-//                    traceState = solutionTrace.back();
-//                    solution.push_front(traceState.selfState);
-//                }
-//                solutionTrace.pop_back();
-//
-//            } while(!solutionTrace.empty());
-//
-//            return solution;
-//        }
-//        if (!(std::find(passed.begin(), passed.end(), currentState) != passed.end())) {
-//            passed.push_back(currentState);
-//            auto transitions = transitionFunctions.computeStateSuccessors(currentState);
-//
-//            for (auto transition: transitions) {
-//                auto successor = currentState;
-//
-//                transition(successor);
-//                waiting.push_back(successor);
-////                std::cout << "Current state " << currentState;
-//                solutionTrace.push_back({currentState, successor});
-////                std::cout << " transitions to: "<< successor << std::endl;
-//            }
-//        }
-//    }
+    std::list<ActorType> passed, solution;
+    std::list<parent_state<ActorType>*> waiting;
+
+    waiting.push_back(new parent_state<ActorType>{nullptr, startState});
+
+    while (!waiting.empty()) {
+        currentState = waiting.front()->selfState;
+        auto traceState {waiting.front()};
+        waiting.pop_front();
+
+        if (isGoalState(currentState)) {
+            while (traceState->parentState != NULL){
+                solution.push_front(traceState->selfState);
+                traceState = traceState->parentState;
+            }
+
+            return solution;
+        }
+        if (!(std::find(passed.begin(), passed.end(), currentState) != passed.end())) {
+            passed.push_back(currentState);
+            auto transitions = transitionFunctions.computeStateSuccessors(currentState);
+
+            for (auto transition: transitions) {
+                auto successor {currentState};
+                transition(successor);
+
+                waiting.push_back(new parent_state<ActorType>{traceState, successor});
+            }
+        }
+    }
+
+    return solution;
 
     return solution;
 }
@@ -135,29 +126,21 @@ template<class ActorType>
 template<class ValidationFunction>
 std::list<ActorType> state_space_t<ActorType>::findSolutionBreadthFirst(ValidationFunction isGoalState) {
     ActorType currentState;
-    parent_state<ActorType> traceState, succState;
     std::list<ActorType> passed, solution;
-    std::list<parent_state<ActorType>> waiting;
+    std::list<parent_state<ActorType>*> waiting;
 
-    waiting.push_back({nullptr, startState});
+    waiting.push_back(new parent_state<ActorType>{nullptr, startState});
 
     while (!waiting.empty()) {
-        currentState = waiting.front().selfState;
-        traceState = waiting.front();
-//        std::cout << traceState.parentState << std::endl;
-//        std::cout << traceState.selfState << std::endl;
+        currentState = waiting.front()->selfState;
+        auto traceState {waiting.front()};
         waiting.pop_front();
 
         if (isGoalState(currentState)) {
-            std::cout << traceState.selfState << std::endl;
-            std::cout << traceState.parentState << std::endl;
-            std::cout << traceState.parentState->parentState << std::endl;
-            std::cout << traceState.parentState->parentState->parentState << std::endl;
-
-//            while (traceState.parentState != NULL){
-//                solution.push_front(traceState.selfState);
-//                traceState = *traceState.parentState;
-//            }
+            while (traceState->parentState != NULL){
+                solution.push_front(traceState->selfState);
+                traceState = traceState->parentState;
+            }
 
             return solution;
         }
@@ -165,14 +148,11 @@ std::list<ActorType> state_space_t<ActorType>::findSolutionBreadthFirst(Validati
             passed.push_back(currentState);
             auto transitions = transitionFunctions.computeStateSuccessors(currentState);
 
-
             for (auto transition: transitions) {
-                auto successor = currentState;
-
+                auto successor {currentState};
                 transition(successor);
-                waiting.push_back({&traceState, successor});
-//                std::cout << "Current state " << currentState;
-//                std::cout << " transitions to: "<< successor << std::endl;
+
+                waiting.push_back(new parent_state<ActorType>{traceState, successor});
             }
         }
     }
