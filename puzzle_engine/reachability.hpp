@@ -19,19 +19,9 @@ enum search_order_t {
 
 template<class ActorType>
 struct parent_state {
-    parent_state* parentState;
+    parent_state *parentState;
     ActorType selfState;
-//    bool compare_parent(ActorType expectedParent);
 };
-
-//template<class ActorType>
-//bool parent_state<ActorType>::compare_parent(ActorType expectedParent) {
-//    if(selfState == expectedParent){
-//        return true;
-//    } else{
-//        return false;
-//    }
-//}
 
 template<class ActorType>
 class successors {
@@ -53,55 +43,59 @@ class state_space_t {
 private:
     ActorType startState;
     successors<ActorType> transitionFunctions;
-
-    template<class ValidationFunction>
-    std::list<ActorType> findSolutionBreadthFirst(ValidationFunction isGoalState);
-
-    template<class ValidationFunction>
-    std::list<ActorType> findSolutionDepthFirst(ValidationFunction isGoalState);
+    std::function<bool(const ActorType &)> invariantFunction;
 
 public:
-    state_space_t(const ActorType startInputState, successors<ActorType> transFunctions) : startState(startInputState),
-                                                                                           transitionFunctions(
-                                                                                                   transFunctions) {
+    state_space_t(const ActorType startInputState, successors<ActorType> transFunctions,
+                  bool invariantFunc(const ActorType &) = [](
+                          const ActorType &state) { return true; }) : startState(startInputState),
+                                                                      transitionFunctions(
+                                                                              transFunctions),
+                                                                      invariantFunction(invariantFunc) {
     }
 
     template<class ValidationFunction>
-    std::list<ActorType> check(ValidationFunction isGoalState, search_order_t order = search_order_t::breadth_first) {
-        std::list<ActorType> solutionTrace;
-        switch (order) {
-            case breadth_first:
-                solutionTrace = findSolutionBreadthFirst(isGoalState);
-                break;
-            case depth_first:
-                solutionTrace = findSolutionDepthFirst(isGoalState);
-                break;
-        }
-
-        return solutionTrace;
-    }
+    std::list<ActorType> check(ValidationFunction isGoalState, search_order_t order = search_order_t::breadth_first);
 };
 
 template<class ActorType>
 template<class ValidationFunction>
-std::list<ActorType> state_space_t<ActorType>::findSolutionDepthFirst(ValidationFunction isGoalState) {
+std::list<ActorType> state_space_t<ActorType>::check(ValidationFunction isGoalState, search_order_t order) {
     ActorType currentState;
+    parent_state<ActorType> *traceState;
     std::list<ActorType> passed, solution;
-    std::list<parent_state<ActorType>*> waiting;
+    std::list<parent_state<ActorType> *> waiting;
 
     waiting.push_back(new parent_state<ActorType>{nullptr, startState});
 
     while (!waiting.empty()) {
-        currentState = waiting.front()->selfState;
-        auto traceState {waiting.front()};
-        waiting.pop_front();
+        switch (order) {
+            case breadth_first:
+                currentState = waiting.front()->selfState;
+                traceState = waiting.front();
+                waiting.pop_front();
+                break;
+            case depth_first:
+                currentState = waiting.back()->selfState;
+                traceState = waiting.back();
+                waiting.pop_back();
+                break;
+            default:
+                std::cout << "Order not supported" << std::endl;
+                break;
+        }
+
+        if (!invariantFunction(currentState)){
+            continue;
+        }
 
         if (isGoalState(currentState)) {
-            while (traceState->parentState != NULL){
+            while (traceState->parentState != NULL) {
                 solution.push_front(traceState->selfState);
                 traceState = traceState->parentState;
             }
 
+            solution.push_front(traceState->selfState); // Adds the start state to the solution trace.
             return solution;
         }
         if (!(std::find(passed.begin(), passed.end(), currentState) != passed.end())) {
@@ -109,7 +103,7 @@ std::list<ActorType> state_space_t<ActorType>::findSolutionDepthFirst(Validation
             auto transitions = transitionFunctions.computeStateSuccessors(currentState);
 
             for (auto transition: transitions) {
-                auto successor {currentState};
+                auto successor{currentState};
                 transition(successor);
 
                 waiting.push_back(new parent_state<ActorType>{traceState, successor});
@@ -117,46 +111,8 @@ std::list<ActorType> state_space_t<ActorType>::findSolutionDepthFirst(Validation
         }
     }
 
-    return solution;
-
-    return solution;
-}
-
-template<class ActorType>
-template<class ValidationFunction>
-std::list<ActorType> state_space_t<ActorType>::findSolutionBreadthFirst(ValidationFunction isGoalState) {
-    ActorType currentState;
-    std::list<ActorType> passed, solution;
-    std::list<parent_state<ActorType>*> waiting;
-
-    waiting.push_back(new parent_state<ActorType>{nullptr, startState});
-
-    while (!waiting.empty()) {
-        currentState = waiting.front()->selfState;
-        auto traceState {waiting.front()};
-        waiting.pop_front();
-
-        if (isGoalState(currentState)) {
-            while (traceState->parentState != NULL){
-                solution.push_front(traceState->selfState);
-                traceState = traceState->parentState;
-            }
-
-            return solution;
-        }
-        if (!(std::find(passed.begin(), passed.end(), currentState) != passed.end())) {
-            passed.push_back(currentState);
-            auto transitions = transitionFunctions.computeStateSuccessors(currentState);
-
-            for (auto transition: transitions) {
-                auto successor {currentState};
-                transition(successor);
-
-                waiting.push_back(new parent_state<ActorType>{traceState, successor});
-            }
-        }
-    }
-
+//    std::list<std::list<ActorType>> returnList;
+//    returnList.push_front(solution);
     return solution;
 }
 

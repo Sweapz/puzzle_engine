@@ -127,7 +127,7 @@ void solve(size_t frogs, search_order_t order = search_order_t::breadth_first){
 int main(){
     //explain();
 	std::cout << "--- Solve with depth-first search: ---\n";
-	solve(10, search_order_t::depth_first);
+	solve(2, search_order_t::depth_first);
     std::cout << "--- Solve with breadth-first search: ---\n";
     solve(2); // 20 frogs may take >5.8GB of memory
 }
