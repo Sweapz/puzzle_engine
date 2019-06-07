@@ -41,19 +41,18 @@ void log(std::string message) {
 //    }
 //};
 
-template<class ActorType, class CostType>
+template<class ActorType>
 std::function<std::list<std::function<void(ActorType &)>>(ActorType &)>
 successors(std::list<std::function<void(ActorType &)>> transitions(const ActorType &state)) {
     return transitions;
 }
 
-template<class ActorType>
+template<class ActorType, class CostType = std::nullptr_t>
 class state_space_t {
 private:
     ActorType startState;
     std::function<std::list<std::function<void(ActorType &)>>(ActorType &)> transitionFunctions;
     std::function<bool(const ActorType &)> invariantFunction;
-
 
 public:
     state_space_t(const ActorType startInputState,
@@ -65,23 +64,26 @@ public:
                                                                       invariantFunction(invariantFunc) {
     }
 
-//    template <class CostType, class CostFunc>
-//    state_space_t(const ActorType startInputState, CostType costInput,
-//                  std::function<std::list<std::function<void(ActorType &)>>(ActorType &)> transFunctions,
-//                  bool invariantFunc(const ActorType &) = [](
-//                          const ActorType &state) { return true; }, CostFunc(const ActorType& state, const CostType& prev_cost) costFunction = ) : startState(startInputState),
-//                                                                      transitionFunctions(
-//                                                                              transFunctions),
-//                                                                      invariantFunction(invariantFunc) {
-//    }
+    state_space_t(const ActorType startInputState, const CostType costInput,
+                  std::function<std::list<std::function<void(ActorType &)>>(ActorType &)> transFunctions,
+                  bool invariantFunc(const ActorType &) = [](
+                          const ActorType &state) { return true; },
+                  std::function<CostType(const ActorType &state, const CostType &cost)> costFunc = [](
+                          const ActorType &state, const CostType &cost) { return CostType{0, 0}; }) : startState(
+            startInputState),
+                                                                                                      transitionFunctions(
+                                                                                                              transFunctions),
+                                                                                                      invariantFunction(
+                                                                                                              invariantFunc) {
+    }
 
     template<class ValidationFunction>
     std::list<ActorType> check(ValidationFunction isGoalState, search_order_t order = search_order_t::breadth_first);
 };
 
-template<class ActorType>
+template<class ActorType, class CostType>
 template<class ValidationFunction>
-std::list<ActorType> state_space_t<ActorType>::check(ValidationFunction isGoalState, search_order_t order) {
+std::list<ActorType> state_space_t<ActorType, CostType>::check(ValidationFunction isGoalState, search_order_t order) {
     ActorType currentState;
     parent_state<ActorType> *traceState;
     std::list<ActorType> passed, solution;

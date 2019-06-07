@@ -31,14 +31,14 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/reachability.hpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2">
-              <caret line="75" column="7" lean-forward="true" selection-start-line="67" selection-start-column="5" selection-end-line="75" selection-end-column="7" />
+            <state relative-caret-position="-475">
+              <caret line="70" column="40" lean-forward="true" selection-start-line="70" selection-start-column="40" selection-end-line="70" selection-end-column="40" />
               <folding>
                 <element signature="e#120#137#0" expanded="true" />
                 <element signature="e#304#321#0" expanded="true" />
-                <element signature="e#1039#1072#0" expanded="true" />
-                <element signature="e#962#979#0" expanded="true" />
-                <element signature="e#1872#1889#0" expanded="true" />
+                <element signature="e#1039#1056#0" expanded="true" />
+                <element signature="e#1258#1309#0" expanded="true" />
+                <element signature="e#3097#3131#0" expanded="true" />
                 <element signature="e#1898#1924#0" expanded="true" />
               </folding>
             </state>
@@ -48,8 +48,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/family.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="205">
-              <caret line="340" column="58" selection-start-line="340" selection-start-column="13" selection-end-line="340" selection-end-column="58" />
+            <state relative-caret-position="7507">
+              <caret line="334" column="9" lean-forward="true" selection-start-line="334" selection-start-column="9" selection-end-line="334" selection-end-column="9" />
               <folding>
                 <element signature="e#2838#2840#0" expanded="true" />
               </folding>
@@ -100,6 +100,7 @@
         <option value="$PROJECT_DIR$/frogs.cpp" />
         <option value="$PROJECT_DIR$/crossing.cpp" />
         <option value="$PROJECT_DIR$/reachability.hpp" />
+        <option value="$PROJECT_DIR$/family.cpp" />
       </list>
     </option>
   </component>
@@ -149,7 +150,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="CMake Application.crossing">
+  <component name="RunManager" selected="CMake Application.family">
     <configuration name="crossing" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="PuzzleEngine" TARGET_NAME="crossing" CONFIG_NAME="Default" RUN_TARGET_PROJECT_NAME="PuzzleEngine" RUN_TARGET_NAME="crossing">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -187,29 +188,29 @@
       <workItem from="1559655751528" duration="221000" />
       <workItem from="1559729885361" duration="2322000" />
       <workItem from="1559737130407" duration="11693000" />
-      <workItem from="1559897968174" duration="4401000" />
+      <workItem from="1559897968174" duration="9119000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65704000" />
+    <option name="totallyTimeSpent" value="70422000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17248322" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17248322" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.35972223" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.35972223" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="7" />
-      <window_info anchor="bottom" id="Messages" order="8" weight="0.3888889" />
+      <window_info active="true" anchor="bottom" id="Messages" order="8" visible="true" weight="0.3888889" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.32916668" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="11" />
@@ -257,8 +258,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/family.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="340" column="58" selection-start-line="340" selection-start-column="13" selection-end-line="340" selection-end-column="58" />
+        <state relative-caret-position="7507">
+          <caret line="334" column="9" lean-forward="true" selection-start-line="334" selection-start-column="9" selection-end-line="334" selection-end-column="9" />
           <folding>
             <element signature="e#2838#2840#0" expanded="true" />
           </folding>
@@ -267,14 +268,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/reachability.hpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2">
-          <caret line="75" column="7" lean-forward="true" selection-start-line="67" selection-start-column="5" selection-end-line="75" selection-end-column="7" />
+        <state relative-caret-position="-475">
+          <caret line="70" column="40" lean-forward="true" selection-start-line="70" selection-start-column="40" selection-end-line="70" selection-end-column="40" />
           <folding>
             <element signature="e#120#137#0" expanded="true" />
             <element signature="e#304#321#0" expanded="true" />
-            <element signature="e#1039#1072#0" expanded="true" />
-            <element signature="e#962#979#0" expanded="true" />
-            <element signature="e#1872#1889#0" expanded="true" />
+            <element signature="e#1039#1056#0" expanded="true" />
+            <element signature="e#1258#1309#0" expanded="true" />
+            <element signature="e#3097#3131#0" expanded="true" />
             <element signature="e#1898#1924#0" expanded="true" />
           </folding>
         </state>

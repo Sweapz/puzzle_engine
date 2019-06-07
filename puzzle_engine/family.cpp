@@ -318,22 +318,22 @@ void solve(CostFn&& cost) { // no type checking: OK hack here, but not good for 
 	// However the search algorithm may collapse symmetric solutions, thus only one is reported.
 	// By changing the cost function we can express a preference and
 	// then the algorithm should report different solutions
-	auto states = state_space_t{
+	auto states = state_space_t<state_t, cost_t>{
 		state_t{}, cost_t{},              // initial state and cost
 		successors<state_t>(transitions), // successor generator
 		&river_crossing_valid,            // invariant over states
 		std::forward<CostFn>(cost)};      // cost over states
-	auto solutions = states.check(&goal);
-	if (solutions.empty()) {
-		std::cout << "No solution\n";
-	} else {
-		for (auto&& trace: solutions) {
-			std::cout << "Solution:\n";
-			std::cout << "Boat,     Mothr,Fathr,Daug1,Daug2,Son1, Son2, Polic,Prisn\n";
-			for (auto&& state: trace)
-				std::cout << *state << '\n';
-		}
-	}
+//	auto solutions = states.check(&goal);
+//	if (solutions.empty()) {
+//		std::cout << "No solution\n";
+//	} else {
+//		for (auto&& trace: solutions) {
+//			std::cout << "Solution:\n";
+//			std::cout << "Boat,     Mothr,Fathr,Daug1,Daug2,Son1, Son2, Polic,Prisn\n";
+//			for (auto&& state: trace)
+//				std::cout << *state << '\n';
+//		}
+//	}
 }
 
 int main() {

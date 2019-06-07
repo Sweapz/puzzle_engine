@@ -1,0 +1,38 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Git/puzzle_engine/puzzle_engine/family.cpp
+reachability.hpp
+C:/Git/puzzle_engine/puzzle_engine/reachability.hpp
+iostream
+-
+vector
+-
+list
+-
+array
+-
+functional
+-
+algorithm
+-
+
+C:/Git/puzzle_engine/puzzle_engine/reachability.hpp
+vector
+-
+list
+-
+functional
+-
+iostream
+-
+algorithm
+-
+typeinfo
+-
+
