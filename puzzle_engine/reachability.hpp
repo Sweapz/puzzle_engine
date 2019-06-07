@@ -23,36 +23,57 @@ struct parent_state {
     ActorType selfState;
 };
 
-template<class ActorType>
-class successors {
-private:
-    std::function<std::list<std::function<void(ActorType &)>>(ActorType &)> transitionFunctions;
+void log(std::string message) {
+    std::cout << message << std::endl;
+}
 
-public:
-    explicit successors<ActorType>(std::list<std::function<void(ActorType &)>> transitions(const ActorType &state))
-            : transitionFunctions(transitions) {
-    };
+//class successors {
+//private:
+//    std::function<std::list<std::function<void(ActorType &)>>(ActorType &)> transitionFunctions;
+//
+//public:
+//    explicit successors<ActorType>(std::list<std::function<void(ActorType &)>> transitions(const ActorType &state))
+//            : transitionFunctions(transitions) {
+//    };
+//
+//    std::function<std::list<std::function<void(ActorType &)>>(ActorType &)> computeStateSuccessors(std::list<std::function<void(ActorType &)>> transitions(const ActorType &state)) {
+//        return transitions;
+//    }
+//};
 
-    std::list<std::function<void(ActorType &)>> computeStateSuccessors(ActorType &state) {
-        return transitionFunctions(state);
-    }
-};
+template<class ActorType, class CostType>
+std::function<std::list<std::function<void(ActorType &)>>(ActorType &)>
+successors(std::list<std::function<void(ActorType &)>> transitions(const ActorType &state)) {
+    return transitions;
+}
 
 template<class ActorType>
 class state_space_t {
 private:
     ActorType startState;
-    successors<ActorType> transitionFunctions;
+    std::function<std::list<std::function<void(ActorType &)>>(ActorType &)> transitionFunctions;
     std::function<bool(const ActorType &)> invariantFunction;
 
+
 public:
-    state_space_t(const ActorType startInputState, successors<ActorType> transFunctions,
+    state_space_t(const ActorType startInputState,
+                  std::function<std::list<std::function<void(ActorType &)>>(ActorType &)> transFunctions,
                   bool invariantFunc(const ActorType &) = [](
                           const ActorType &state) { return true; }) : startState(startInputState),
                                                                       transitionFunctions(
                                                                               transFunctions),
                                                                       invariantFunction(invariantFunc) {
     }
+
+//    template <class CostType, class CostFunc>
+//    state_space_t(const ActorType startInputState, CostType costInput,
+//                  std::function<std::list<std::function<void(ActorType &)>>(ActorType &)> transFunctions,
+//                  bool invariantFunc(const ActorType &) = [](
+//                          const ActorType &state) { return true; }, CostFunc(const ActorType& state, const CostType& prev_cost) costFunction = ) : startState(startInputState),
+//                                                                      transitionFunctions(
+//                                                                              transFunctions),
+//                                                                      invariantFunction(invariantFunc) {
+//    }
 
     template<class ValidationFunction>
     std::list<ActorType> check(ValidationFunction isGoalState, search_order_t order = search_order_t::breadth_first);
@@ -85,7 +106,7 @@ std::list<ActorType> state_space_t<ActorType>::check(ValidationFunction isGoalSt
                 break;
         }
 
-        if (!invariantFunction(currentState)){
+        if (!invariantFunction(currentState)) {
             continue;
         }
 
@@ -100,7 +121,7 @@ std::list<ActorType> state_space_t<ActorType>::check(ValidationFunction isGoalSt
         }
         if (!(std::find(passed.begin(), passed.end(), currentState) != passed.end())) {
             passed.push_back(currentState);
-            auto transitions = transitionFunctions.computeStateSuccessors(currentState);
+            auto transitions = transitionFunctions(currentState);
 
             for (auto transition: transitions) {
                 auto successor{currentState};

@@ -70,7 +70,7 @@ std::ostream& operator<<(std::ostream& os, std::list<const actors_t*>& trace) {
 }
 
 void solve(){
-	auto state_space = state_space_t(
+	auto state_space = state_space_t<actors_t >(
 		actors_t{},                        // initial state
 		successors<actors_t>(transitions), // successor generator
 		&is_valid);                        // invariant over all states
