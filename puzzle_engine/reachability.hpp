@@ -23,24 +23,6 @@ struct parent_state {
     ActorType selfState;
 };
 
-void log(std::string message) {
-    std::cout << message << std::endl;
-}
-
-//class successors {
-//private:
-//    std::function<std::list<std::function<void(ActorType &)>>(ActorType &)> transitionFunctions;
-//
-//public:
-//    explicit successors<ActorType>(std::list<std::function<void(ActorType &)>> transitions(const ActorType &state))
-//            : transitionFunctions(transitions) {
-//    };
-//
-//    std::function<std::list<std::function<void(ActorType &)>>(ActorType &)> computeStateSuccessors(std::list<std::function<void(ActorType &)>> transitions(const ActorType &state)) {
-//        return transitions;
-//    }
-//};
-
 template<class ActorType>
 std::function<std::list<std::function<void(ActorType &)>>(ActorType &)>
 successors(std::list<std::function<void(ActorType &)>> transitions(const ActorType &state)) {
@@ -137,6 +119,25 @@ std::list<ActorType> state_space_t<ActorType, CostType>::check(ValidationFunctio
 //    std::list<std::list<ActorType>> returnList;
 //    returnList.push_front(solution);
     return solution;
+}
+
+void log(std::string message) {
+    std::cout << message << std::endl;
+}
+
+namespace std {
+    template <typename T, size_t i>
+    struct hash<array<T, i>> {
+        std::size_t operator() (const array<T, i>& key) const {
+            hash<T> ElementHasher;
+            size_t res;
+            for (int j = 0; j<i;j++)
+            {
+                res = (res << 1) ^ ElementHasher(key[i]);
+            }
+            return res;
+        }
+    };
 }
 
 #endif //PUZZLEENGINE_REACHABILITY_HPP

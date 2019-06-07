@@ -28,11 +28,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Default" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/reachability.hpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-475">
-              <caret line="70" column="40" lean-forward="true" selection-start-line="70" selection-start-column="40" selection-end-line="70" selection-end-column="40" />
+            <state relative-caret-position="211">
+              <caret line="122" selection-start-line="122" selection-end-line="122" />
               <folding>
                 <element signature="e#120#137#0" expanded="true" />
                 <element signature="e#304#321#0" expanded="true" />
@@ -45,11 +45,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/family.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7507">
-              <caret line="334" column="9" lean-forward="true" selection-start-line="334" selection-start-column="9" selection-end-line="334" selection-end-column="9" />
+            <state relative-caret-position="5832">
+              <caret line="334" column="9" selection-start-line="334" selection-start-column="9" selection-end-line="334" selection-end-column="9" />
               <folding>
                 <element signature="e#2838#2840#0" expanded="true" />
               </folding>
@@ -99,8 +99,8 @@
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/frogs.cpp" />
         <option value="$PROJECT_DIR$/crossing.cpp" />
-        <option value="$PROJECT_DIR$/reachability.hpp" />
         <option value="$PROJECT_DIR$/family.cpp" />
+        <option value="$PROJECT_DIR$/reachability.hpp" />
       </list>
     </option>
   </component>
@@ -188,12 +188,12 @@
       <workItem from="1559655751528" duration="221000" />
       <workItem from="1559729885361" duration="2322000" />
       <workItem from="1559737130407" duration="11693000" />
-      <workItem from="1559897968174" duration="9119000" />
+      <workItem from="1559897968174" duration="10983000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="70422000" />
+    <option name="totallyTimeSpent" value="72286000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
@@ -256,20 +256,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/family.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7507">
-          <caret line="334" column="9" lean-forward="true" selection-start-line="334" selection-start-column="9" selection-end-line="334" selection-end-column="9" />
-          <folding>
-            <element signature="e#2838#2840#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/reachability.hpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-475">
-          <caret line="70" column="40" lean-forward="true" selection-start-line="70" selection-start-column="40" selection-end-line="70" selection-end-column="40" />
+        <state relative-caret-position="211">
+          <caret line="122" selection-start-line="122" selection-end-line="122" />
           <folding>
             <element signature="e#120#137#0" expanded="true" />
             <element signature="e#304#321#0" expanded="true" />
@@ -277,6 +267,16 @@
             <element signature="e#1258#1309#0" expanded="true" />
             <element signature="e#3097#3131#0" expanded="true" />
             <element signature="e#1898#1924#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/family.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5832">
+          <caret line="334" column="9" selection-start-line="334" selection-start-column="9" selection-end-line="334" selection-end-column="9" />
+          <folding>
+            <element signature="e#2838#2840#0" expanded="true" />
           </folding>
         </state>
       </provider>
