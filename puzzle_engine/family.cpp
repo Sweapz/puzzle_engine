@@ -214,7 +214,7 @@ transitions(const state_t& s) {
 
 bool river_crossing_valid(const state_t& s) {
 	if (s.boat.passengers > s.boat.capacity) {
-		log(" boat overload\n");
+//		log(" boat overload\n");
 		return false;
 	}
 	if (s.boat.pos == boat_t::travel) {
@@ -224,7 +224,7 @@ bool river_crossing_valid(const state_t& s) {
 				(s.persons[person_t::son1].pos == person_t::onboard) ||
 				(s.persons[person_t::son2].pos == person_t::onboard) ||
 				(s.persons[person_t::prisoner].pos == person_t::onboard)) {
-				log(" d1 travel alone\n");
+//				log(" d1 travel alone\n");
 				return false;
 			}
 		} else if (s.persons[person_t::daughter2].pos == person_t::onboard) {
@@ -233,7 +233,7 @@ bool river_crossing_valid(const state_t& s) {
 				(s.persons[person_t::son1].pos == person_t::onboard) ||
 				(s.persons[person_t::son2].pos == person_t::onboard) ||
 				(s.persons[person_t::prisoner].pos == person_t::onboard)) {
-				log(" d2 travel alone\n");
+//				log(" d2 travel alone\n");
 				return false;
 			}
 		} else if (s.persons[person_t::son1].pos == person_t::onboard) {
@@ -242,7 +242,7 @@ bool river_crossing_valid(const state_t& s) {
 				(s.persons[person_t::daughter2].pos == person_t::onboard) ||
 				(s.persons[person_t::son2].pos == person_t::onboard) ||
 				(s.persons[person_t::prisoner].pos == person_t::onboard)) {
-				log(" s1 travel alone\n");
+//				log(" s1 travel alone\n");
 				return false;
 			}
 		} else if (s.persons[person_t::son2].pos == person_t::onboard) {
@@ -251,7 +251,7 @@ bool river_crossing_valid(const state_t& s) {
 				(s.persons[person_t::daughter2].pos == person_t::onboard) ||
 				(s.persons[person_t::son1].pos == person_t::onboard) ||
 				(s.persons[person_t::prisoner].pos == person_t::onboard)) {
-				log(" s2 travel alone\n");
+//				log(" s2 travel alone\n");
 				return false;
 			}
 		}
@@ -263,33 +263,33 @@ bool river_crossing_valid(const state_t& s) {
 				(s.persons[person_t::son2].pos == prisoner_pos) ||
 				(s.persons[person_t::mother].pos == prisoner_pos) ||
 				(s.persons[person_t::father].pos == prisoner_pos)) {
-				log(" pr with family\n");
+//				log(" pr with family\n");
 				return false;
 			}
 		}
 		if (s.persons[person_t::prisoner].pos == person_t::onboard && s.boat.passengers<2) {
-			log(" pr on boat\n");
+//			log(" pr on boat\n");
 			return false;
 		}
 	}
 	if ((s.persons[person_t::daughter1].pos == s.persons[person_t::father].pos) &&
 		(s.persons[person_t::daughter1].pos != s.persons[person_t::mother].pos)) {
-		log(" d1 with f\n");
+//		log(" d1 with f\n");
 		return false;
 	} else if ((s.persons[person_t::daughter2].pos == s.persons[person_t::father].pos) &&
 			   (s.persons[person_t::daughter2].pos != s.persons[person_t::mother].pos)) {
-		log(" d2 with f\n");
+//		log(" d2 with f\n");
 		return false;
 	} else if ((s.persons[person_t::son1].pos == s.persons[person_t::mother].pos) &&
 			   (s.persons[person_t::son1].pos != s.persons[person_t::father].pos)) {
-		log(" s1 with m\n");
+//		log(" s1 with m\n");
 		return false;
 	} else if ((s.persons[person_t::son2].pos == s.persons[person_t::mother].pos) &&
 			   (s.persons[person_t::son2].pos != s.persons[person_t::father].pos)) {
-		log(" s2 with m\n");
+//		log(" s2 with m\n");
 		return false;
 	}
-	log(" OK\n");
+//	log(" OK\n");
 	return true;
 }
 
@@ -323,17 +323,18 @@ void solve(CostFn&& cost) { // no type checking: OK hack here, but not good for 
 		successors<state_t>(transitions), // successor generator
 		&river_crossing_valid,            // invariant over states
 		std::forward<CostFn>(cost)};      // cost over states
-//	auto solutions = states.check(&goal);
-//	if (solutions.empty()) {
-//		std::cout << "No solution\n";
-//	} else {
-//		for (auto&& trace: solutions) {
-//			std::cout << "Solution:\n";
-//			std::cout << "Boat,     Mothr,Fathr,Daug1,Daug2,Son1, Son2, Polic,Prisn\n";
+	auto solutions = states.check(&goal);
+	if (solutions.empty()) {
+		std::cout << "No solution\n";
+	} else {
+        std::cout << "Solution:\n";
+        std::cout << "Boat,     Mothr,Fathr,Daug1,Daug2,Son1, Son2, Polic,Prisn\n";
+		for (auto&& trace: solutions) {
+            std::cout << trace << '\n';
 //			for (auto&& state: trace)
 //				std::cout << *state << '\n';
-//		}
-//	}
+		}
+	}
 }
 
 int main() {

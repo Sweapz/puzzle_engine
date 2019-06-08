@@ -125,19 +125,18 @@ void log(std::string message) {
     std::cout << message << std::endl;
 }
 
-namespace std {
-    template <typename T, size_t i>
-    struct hash<array<T, i>> {
-        std::size_t operator() (const array<T, i>& key) const {
-            hash<T> ElementHasher;
-            size_t res;
-            for (int j = 0; j<i;j++)
-            {
-                res = (res << 1) ^ ElementHasher(key[i]);
-            }
-            return res;
+template <typename StateType, size_t i>
+struct std::hash<std::array<StateType, i>> {
+    std::size_t operator() (const array<StateType, i>& key) const {
+        std::hash<StateType> ElementHasher;
+        size_t res;
+        for (int j = 0; j<i;j++)
+        {
+            res = (res << 1) ^ ElementHasher(key[i]);
         }
-    };
-}
+        return res;
+    }
+};
+
 
 #endif //PUZZLEENGINE_REACHABILITY_HPP
