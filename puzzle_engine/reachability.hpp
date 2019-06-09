@@ -15,11 +15,10 @@ enum search_order_t {
     breadth_first, depth_first
 };
 
-template<class ActorType, class CostType = std::nullptr_t>
+template<class ActorType>
 struct parent_state {
     parent_state *parentState;
     ActorType selfState;
-    CostType stateCost;
 };
 
 template<class ActorType>
@@ -60,7 +59,7 @@ public:
                           const ActorType &state) { return true; },
                   std::function<CostType(const ActorType &state, const CostType &cost)> costFunc = [](
                           const ActorType &state, const CostType &cost) { return CostType{0, 0}; }) : _startState(
-            startInputState),
+                                                                                                              startInputState),
                                                                                                       _initialCost(
                                                                                                               costInput),
                                                                                                       _transitionFunctions(
@@ -95,22 +94,19 @@ template<class ActorType, class CostType>
 template<class ValidationFunction>
 std::list<ActorType> state_space_t<ActorType, CostType>::solveCost(ValidationFunction isGoalState) {
     ActorType currentState;
-    CostType itCost {_initialCost}, newCost;
+    CostType itCost{_initialCost}, newCost;
     parent_state<ActorType> *traceState;
     std::list<ActorType> passed, solution;
-    std::list<parent_state<ActorType> *> waiting;
+    std::list<std::pair<CostType, parent_state<ActorType> *>> waiting;
 
-    waiting.push_back(new parent_state<ActorType>{nullptr, _startState});
+    waiting.push_back(std::make_pair(itCost, new parent_state<ActorType>{nullptr, _startState}));
 
     while (!waiting.empty()) {
-        currentState = waiting.back()->selfState;
-        traceState = waiting.back();
-        waiting.pop_back();
-        itCost = newCost;
+        currentState = waiting.front().second->selfState;
+        traceState = waiting.front().second;
+        itCost = waiting.front().first;
+        waiting.pop_front();
 
-        if (!_invariantFunction(currentState)) {
-            continue;
-        }
         if (isGoalState(currentState)) {
             while (traceState->parentState != NULL) {
                 solution.push_front(traceState->selfState);
@@ -127,9 +123,16 @@ std::list<ActorType> state_space_t<ActorType, CostType>::solveCost(ValidationFun
             for (auto transition: transitions) {
                 auto successor{currentState};
                 transition(successor);
+
+                if (!_invariantFunction(successor)) { // Prevents invalid states being added to waiting.
+                    continue;
+                }
                 newCost = _costFunction(successor, itCost);
-//                std::cout << newCost.depth << ", " << newCost.noise << std::endl;
-                waiting.push_back(new parent_state<ActorType>{traceState, successor});
+                waiting.push_back(std::make_pair(newCost, new parent_state<ActorType>{traceState, successor}));
+            }
+            if (!transitions.empty()) { // Prevents sorting if no new transitions have been found.
+                waiting.sort([](const std::pair<CostType, parent_state<ActorType> *> &a,
+                                std::pair<CostType, parent_state<ActorType> *> &b) { return a.first < b.first; });
             }
         }
     }
@@ -181,7 +184,7 @@ state_space_t<ActorType, CostType>::solveOrder(ValidationFunction isGoalState, s
                 auto successor{currentState};
                 transition(successor);
 
-                if (!_invariantFunction(successor)) {
+                if (!_invariantFunction(successor)) { // Prevents invalid states being added to waiting.
                     continue;
                 }
                 waiting.push_back(new parent_state<ActorType>{traceState, successor});
@@ -189,24 +192,13 @@ state_space_t<ActorType, CostType>::solveOrder(ValidationFunction isGoalState, s
         }
     }
 
-//    std::list<std::list<ActorType>> returnList;
-//    returnList.push_front(solution);
     return solution;
-}
-
-void log(std::string message) {
-    std::cout << message << std::endl;
 }
 
 template<typename StateType, size_t typeSize>
 struct std::hash<std::array<StateType, typeSize>> {
     std::size_t operator()(const array<StateType, typeSize> &key) const {
-        std::hash<StateType> hashElement;
-        size_t result;
-        for (int index = 0; index < typeSize; index++) {
-            result = (result << 1) ^ hashElement(key[typeSize]);
-        }
-        return result;
+        return NULL;
     }
 };
 
