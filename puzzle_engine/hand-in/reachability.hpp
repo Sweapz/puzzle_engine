@@ -78,18 +78,19 @@ public:
                   bool invariantFunc(const StateTypeT &) = [](
                           const StateTypeT &state) { return true; },
                   std::function<CostTypeT(const StateTypeT &state, const CostTypeT &cost)> costFunc = [](
-                          const StateTypeT &state, const CostTypeT &cost) { return CostTypeT{0, 0}; }) : _startState(
-                                                                                                              startInputState),
-                                                                                                      _initialCost(
-                                                                                                              costInput),
-                                                                                                      _transitionFunctions(
-                                                                                                              transFunctions),
-                                                                                                      _invariantFunction(
-                                                                                                              invariantFunc),
-                                                                                                      _costFunction(
-                                                                                                              costFunc),
-                                                                                                      _isCostEnabled(
-                                                                                                              true) {
+                          const StateTypeT &state, const CostTypeT &cost)
+                                  { return CostTypeT{0, 0}; }) : _startState(
+                                                                      startInputState),
+                                                                  _initialCost(
+                                                                          costInput),
+                                                                  _transitionFunctions(
+                                                                          transFunctions),
+                                                                  _invariantFunction(
+                                                                          invariantFunc),
+                                                                  _costFunction(
+                                                                          costFunc),
+                                                                  _isCostEnabled(
+                                                                          true) {
     }
 
     template<class ValidationFunction>
