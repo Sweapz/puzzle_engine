@@ -78,8 +78,11 @@ void solve(){
 		[](const actors_t& actors){ // all actors should be on the shore2:
 			return std::count(std::begin(actors), std::end(actors), pos_t::shore2)==actors.size();
 		});
+	// Introduced a change in print to adhere to my solution
+	std::cout << "#  CGW" << std::endl;
+	int it = 0;
 	for (auto&& trace: solution)
-		std::cout << "#  CGW\n" << trace;
+		std::cout << it << ": " << trace << std::endl;
 }
 
 int main(){

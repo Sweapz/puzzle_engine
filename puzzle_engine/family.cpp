@@ -327,12 +327,11 @@ void solve(CostFn&& cost) { // no type checking: OK hack here, but not good for 
 	if (solutions.empty()) {
 		std::cout << "No solution\n";
 	} else {
+        // Introduced a change in print to adhere to my solution
         std::cout << "Solution:\n";
         std::cout << "Boat,     Mothr,Fathr,Daug1,Daug2,Son1, Son2, Polic,Prisn\n";
 		for (auto&& trace: solutions) {
             std::cout << trace << '\n';
-//			for (auto&& state: trace)
-//				std::cout << *state << '\n';
 		}
 	}
 }

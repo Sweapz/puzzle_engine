@@ -31,13 +31,22 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/reachability.hpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="256">
-              <caret line="133" column="58" selection-start-line="133" selection-start-column="58" selection-end-line="133" selection-end-column="58" />
+            <state relative-caret-position="5880">
+              <caret line="245" column="66" selection-start-line="245" selection-start-column="66" selection-end-line="245" selection-end-column="66" />
               <folding>
-                <element signature="e#263#280#0" expanded="true" />
-                <element signature="e#5978#6011#0" expanded="true" />
-                <element signature="e#6020#6046#0" expanded="true" />
-                <element signature="e#8089#8126#0" expanded="true" />
+                <element signature="e#79#96#0" expanded="true" />
+                <element signature="e#594#612#0" expanded="true" />
+                <element signature="e#846#864#0" expanded="true" />
+                <element signature="e#1280#1332#0" expanded="true" />
+                <element signature="e#1789#1815#0" expanded="true" />
+                <element signature="e#1921#1947#0" expanded="true" />
+                <element signature="e#4878#4904#0" expanded="true" />
+                <element signature="e#5346#5381#0" expanded="true" />
+                <element signature="e#5390#5416#0" expanded="true" />
+                <element signature="e#6232#6267#0" expanded="true" />
+                <element signature="e#6276#6302#0" expanded="true" />
+                <element signature="e#9781#9816#0" expanded="true" />
+                <element signature="e#9825#9851#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -46,8 +55,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/family.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="401" column="57" selection-start-line="384" selection-end-line="401" selection-end-column="57" />
+            <state relative-caret-position="120">
+              <caret line="5" selection-start-line="5" selection-end-line="6" />
               <folding>
                 <element signature="e#2838#2840#0" expanded="true" />
               </folding>
@@ -58,8 +67,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/crossing.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1896">
-              <caret line="79" column="9" selection-start-line="79" selection-start-column="9" selection-end-line="79" selection-end-column="9" />
+            <state relative-caret-position="96">
+              <caret line="4" selection-start-line="4" selection-end-line="5" />
             </state>
           </provider>
         </entry>
@@ -67,8 +76,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frogs.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2952">
-              <caret line="123" column="5" selection-start-line="123" selection-start-column="5" selection-end-line="123" selection-end-column="5" />
+            <state relative-caret-position="120">
+              <caret line="5" column="76" selection-start-line="5" selection-start-column="76" selection-end-line="5" selection-end-column="76" />
             </state>
           </provider>
         </entry>
@@ -92,6 +101,11 @@
       <find>depth</find>
       <find>hash</find>
       <find>cost_</find>
+      <find>parent_state</find>
+      <find>traceNode</find>
+      <find>ActorType</find>
+      <find>CostType</find>
+      <find>requirement</find>
     </findStrings>
     <replaceStrings>
       <replace>ActorType</replace>
@@ -101,15 +115,19 @@
       <replace>_invariantFunction</replace>
       <replace>result</replace>
       <replace>typeSize</replace>
+      <replace>traceNode</replace>
+      <replace>trace_node</replace>
+      <replace>StateTypeT</replace>
+      <replace>CostTypeT</replace>
     </replaceStrings>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
-        <option value="$PROJECT_DIR$/frogs.cpp" />
-        <option value="$PROJECT_DIR$/family.cpp" />
         <option value="$PROJECT_DIR$/crossing.cpp" />
+        <option value="$PROJECT_DIR$/family.cpp" />
+        <option value="$PROJECT_DIR$/frogs.cpp" />
         <option value="$PROJECT_DIR$/reachability.hpp" />
       </list>
     </option>
@@ -160,7 +178,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="CMake Application.crossing">
+  <component name="RunManager" selected="CMake Application.frogs">
     <configuration name="crossing" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="PuzzleEngine" TARGET_NAME="crossing" CONFIG_NAME="Default" RUN_TARGET_PROJECT_NAME="PuzzleEngine" RUN_TARGET_NAME="crossing">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -201,22 +219,23 @@
       <workItem from="1559897968174" duration="11608000" />
       <workItem from="1559983247910" duration="15289000" />
       <workItem from="1560069206077" duration="10013000" />
+      <workItem from="1560158765482" duration="8853000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="98213000" />
+    <option name="totallyTimeSpent" value="108375000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17718121" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17986578" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.25972223" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.19583334" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -256,22 +275,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/crossing.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1896">
-          <caret line="79" column="9" selection-start-line="79" selection-start-column="9" selection-end-line="79" selection-end-column="9" />
+        <state relative-caret-position="96">
+          <caret line="4" selection-start-line="4" selection-end-line="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/frogs.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2952">
-          <caret line="123" column="5" selection-start-line="123" selection-start-column="5" selection-end-line="123" selection-end-column="5" />
+        <state relative-caret-position="120">
+          <caret line="5" column="76" selection-start-line="5" selection-start-column="76" selection-end-line="5" selection-end-column="76" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/family.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="401" column="57" selection-start-line="384" selection-end-line="401" selection-end-column="57" />
+        <state relative-caret-position="120">
+          <caret line="5" selection-start-line="5" selection-end-line="6" />
           <folding>
             <element signature="e#2838#2840#0" expanded="true" />
           </folding>
@@ -280,13 +299,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/reachability.hpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="133" column="58" selection-start-line="133" selection-start-column="58" selection-end-line="133" selection-end-column="58" />
+        <state relative-caret-position="5880">
+          <caret line="245" column="66" selection-start-line="245" selection-start-column="66" selection-end-line="245" selection-end-column="66" />
           <folding>
-            <element signature="e#263#280#0" expanded="true" />
-            <element signature="e#5978#6011#0" expanded="true" />
-            <element signature="e#6020#6046#0" expanded="true" />
-            <element signature="e#8089#8126#0" expanded="true" />
+            <element signature="e#79#96#0" expanded="true" />
+            <element signature="e#594#612#0" expanded="true" />
+            <element signature="e#846#864#0" expanded="true" />
+            <element signature="e#1280#1332#0" expanded="true" />
+            <element signature="e#1789#1815#0" expanded="true" />
+            <element signature="e#1921#1947#0" expanded="true" />
+            <element signature="e#4878#4904#0" expanded="true" />
+            <element signature="e#5346#5381#0" expanded="true" />
+            <element signature="e#5390#5416#0" expanded="true" />
+            <element signature="e#6232#6267#0" expanded="true" />
+            <element signature="e#6276#6302#0" expanded="true" />
+            <element signature="e#9781#9816#0" expanded="true" />
+            <element signature="e#9825#9851#0" expanded="true" />
           </folding>
         </state>
       </provider>

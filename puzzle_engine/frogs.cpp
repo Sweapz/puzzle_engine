@@ -93,7 +93,8 @@ void explain(){
 	const auto finish = stones_t{{ frog_t::brown, frog_t::brown, frog_t::empty,
 								   frog_t::green, frog_t::green }};
 	std::cout << "Leaping frog puzzle start: " << start << ", finish: " << finish << '\n';
-	auto space = state_space_t<stones_t >(start, successors<stones_t>(transitions));// define state space
+    // Added type specification to the template.
+    auto space = state_space_t<stones_t >(start, successors<stones_t>(transitions));// define state space
 	// explore the state space and find the solutions satisfying goal:
 	std::cout << "--- Solve with default (breadth-first) search: ---\n";
 	auto solutions = space.check([&finish](const stones_t& state){ return state==finish; });
@@ -114,10 +115,12 @@ void solve(size_t frogs, search_order_t order = search_order_t::breadth_first){
 		finish[finish.size()-frogs-1] = frog_t::green; // green on right
 	}
 	std::cout << "Leaping frog puzzle start: " << start << ", finish: " << finish << '\n';
+	// Added type specification to the template.
 	auto space = state_space_t<stones_t >(std::move(start), successors<stones_t>(transitions));
 	auto solutions = space.check(
 		[finish=std::move(finish)](const stones_t& state){ return state==finish; },
 		order);
+    // Introduced a change in print to adhere to my solution
     std::cout << "Solution: trace of " << solutions.size() << " states\n";
     for (auto&& trace: solutions) {
 		std::cout << trace << std::endl;
